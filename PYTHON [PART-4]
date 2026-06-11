@@ -1,0 +1,58 @@
+# Operation on file (read , write)
+f = open("sample.txt","r")
+data = f.read()
+print(data)
+
+f = open("sample.txt","r")
+data = f.readline() #read line by line 
+print(data)
+
+f = open("sample.txt","w")
+f.write("1234456789")
+f.close()
+
+f = open ("sample.txt","a")
+f.write("\nnatural numbers")
+f.close()
+
+#WITH KEYWORD 
+with open("sample.txt","r") as f:
+    print(f.read())
+
+
+#CREATING A NEW FILE 
+f = open("sample1.txt","x")
+f.write("Any random values")
+f.close()
+
+ 
+#DELETE FILES
+import os 
+os.remove("sample1.txt")
+
+data = True
+line = 1
+with open("sample.txt","r") as f:
+    while data:
+        data = f.readline()  
+        if("natural" in data):
+            print("word found at line no.",line)
+            break
+        print(data)
+        line+=1
+        
+#EXCEPTION HANDLING
+try:
+    x = int(input("enter the number: "))
+    ans = 10/x
+    
+except ZeroDivisionError:
+    print(f"Divide by 0 is not allowed")
+else:
+    print(f"ans is {ans}")
+finally:
+    print("end of python program ")
+    
+#LIST COMPREHENSIONS 
+sq = [i*i for i in range(6)]
+print(sq)
